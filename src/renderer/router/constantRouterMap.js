@@ -32,7 +32,7 @@ export default [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    name: '主页',
+    name: '主控制页',
     hidden: true,
     children: [{
       path: 'dashboard',
@@ -44,19 +44,19 @@ export default [
   {
     path: '/form',
     component: Layout,
-    meta: { title: '表单', icon: 'form' },
+    meta: { title: '实验操作', icon: 'form' },
     children: [
       {
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: '表单', icon: 'form' }
+        meta: { title: '录入实验信息', icon: 'form' }
       },
       {
-        path: 'index2',
-        name: 'Form2',
-        component: () => import('@/views/form/index'),
-        meta: { title: '表单2', icon: 'form' }
+        path: 'operate',
+        name: 'FormOperate',
+        component: () => import('@/views/form/operate'),
+        meta: { title: '数据采样操作', icon: 'form' }
       }
     ]
   },

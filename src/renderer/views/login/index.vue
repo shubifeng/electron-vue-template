@@ -9,7 +9,7 @@
         ref="loginForm"
         label-position="left"
       >
-        <h3 class="title">后台管理框架</h3>
+        <h3 class="title">碳码有数细胞分析平台</h3>
         <el-form-item prop="username">
           <span class="svg-container svg-container_login">
             <svg-icon icon-class="user" />
