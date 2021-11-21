@@ -56,3 +56,5 @@ npm config edit
 
 
 # [更新日志](CHANGELOG.md)
+
+# [安装程序特殊记录日志](READMEO.md)

@@ -19,7 +19,9 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
-    "extraFiles": [],
+    "extraFiles": [
+      "lib/*"
+    ],
     "publish": [
       {
         "provider": "generic",
@@ -67,8 +69,10 @@
     "electron-updater": "^4.3.9",
     "element-ui": "^2.15.6",
     "express": "^4.17.1",
+    "ffi-napi": "^4.0.3",
     "fs-extra": "^10.0.0",
     "install": "^0.13.0",
+    "nedb": "^1.8.0",
     "nprogress": "^0.2.0",
     "or": "^0.2.0",
     "vue": "^2.6.14",
