@@ -216,6 +216,50 @@ export default {
       });
     },
     StartServer() {
+
+      // 查找数据
+      this.$db.find({"age":100}, (err, docs)=>{
+        if(err){
+          console.log(err);
+          return;
+        };
+        console.log("查找数据");
+        console.log(docs);
+      });
+
+
+// 插入数据
+      this.$db.insert({"name":20,"age":100},function(err,doc){
+        if(err){
+          console.log(err);
+          return;
+        }
+        console.log("插入数据");
+        console.log(doc);
+      })
+
+// 更新数据
+      this.$db.update({"_id":"cHODtJOIft1YcOMN"},{$set:{"name":"赵六"}},function(err,data){
+        if(err){
+          console.log(err);
+          return;
+        }
+        console.log("更新数据");
+        console.log(data);
+      })
+
+// 移除数据
+      this.$db.remove({"_id":"6nAYPLImXRs7mB0P"},{},function(err,data){
+        if(err){
+          console.log(err);
+          return;
+        }
+        console.log("移除数据");
+        console.log(data);
+      })
+
+      console.log("2222222222222222222222222222");
+
       ipcRenderer.invoke("statr-server").then((res) => {
         if (res) {
           this.$message({

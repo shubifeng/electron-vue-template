@@ -13,6 +13,6 @@ module.exports = {
   production: require('./prod.env'),
   UseStartupChart: true,
   IsUseSysTitle: true,
-  DllFolder: '',
+  DllFolder: 'dll',
   BuiltInServerPort: 25565
 }

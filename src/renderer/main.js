@@ -24,6 +24,7 @@ if (!process.env.IS_WEB) {
   }
 }
 
+
 // 创建 i18n
 Vue.use(VueI18n) // 新版本必须要这个，不知道为什么
 const i18n = new VueI18n({
@@ -44,5 +45,28 @@ const vue = new Vue({
   i18n,
   template: '<App/>'
 }).$mount('#app')
+
+const ffi = require('ffi-napi');
+/**
+ * 先定义一个函数, 用来在窗口中显示字符
+ * @param {String} text
+ * @return {*} none
+ */
+function showText(text) {
+  return new Buffer(text, 'ucs2').toString('binary');
+};
+// 通过ffi加载user32.dll
+const myUser32 = new ffi.Library('DVPCamera', {
+  'MessageBoxW': // 声明这个dll中的一个函数
+      [
+        'int32', ['int32', 'string', 'string', 'int32'], // 用json的格式罗列其返回类型和参数类型
+      ],
+});
+
+// 调用user32.dll中的MessageBoxW()函数, 弹出一个对话框
+const isOk = myUser32.MessageBoxW(
+    0, showText('I am Node.JS!'), showText('Hello, World!'), 1
+);
+console.log(isOk);
 
 export default vue
