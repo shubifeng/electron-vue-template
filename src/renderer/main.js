@@ -56,17 +56,25 @@ function showText(text) {
   return new Buffer(text, 'ucs2').toString('binary');
 };
 // 通过ffi加载user32.dll
-const myUser32 = new ffi.Library('DVPCamera', {
-  'MessageBoxW': // 声明这个dll中的一个函数
+const mini32 = new ffi.Library('toupnams', {
+  'Toupnam_Fini': // 声明这个dll中的一个函数
       [
-        'int32', ['int32', 'string', 'string', 'int32'], // 用json的格式罗列其返回类型和参数类型
+        'void', [], // 用json的格式罗列其返回类型和参数类型
       ],
-});
+  'Toupnam_Open':
+  [
 
+  ]
+});
+console.log("--------------");
+
+const isOk = mini32.Toupnam_Fini();
+console.log("isOk"+isOk);
+/*
 // 调用user32.dll中的MessageBoxW()函数, 弹出一个对话框
 const isOk = myUser32.MessageBoxW(
     0, showText('I am Node.JS!'), showText('Hello, World!'), 1
 );
 console.log(isOk);
-
+*/
 export default vue

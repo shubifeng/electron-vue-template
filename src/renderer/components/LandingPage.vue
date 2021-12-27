@@ -216,7 +216,7 @@ export default {
       });
     },
     StartServer() {
-
+/*
       // 查找数据
       this.$db.find({"age":100}, (err, docs)=>{
         if(err){
@@ -257,7 +257,7 @@ export default {
         console.log("移除数据");
         console.log(data);
       })
-
+*/
       console.log("2222222222222222222222222222");
 
       ipcRenderer.invoke("statr-server").then((res) => {
